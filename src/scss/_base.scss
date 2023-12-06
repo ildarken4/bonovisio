@@ -1,7 +1,7 @@
 *,
 *::before,
 *::after {
-	box-sizing: inherit;
+	box-sizing: border-box;
 }
 
 html {
@@ -9,7 +9,7 @@ html {
 	overflow-x: hidden;
 	min-height: 100vh;
 	box-sizing: border-box;
-	font-family: $font-primary;
+	font-family: $font-400;
 	scroll-behavior: smooth;
 
 	&.has-cursor,
@@ -25,13 +25,20 @@ html {
 }
 
 body {
+	font-size: 16px;
 	-webkit-font-smoothing: antialiased;
 	text-decoration-skip: objects;
 	text-rendering: optimizeLegibility;
 	text-size-adjust: 100%;
 	-webkit-tap-highlight-color: transparent;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	color: $color-blue;
 }
-
+.no-scroll {
+	overflow-y: hidden;
+}
 main {
 	flex: 1;
 }
@@ -96,6 +103,18 @@ li {
 	padding: 0;
 }
 
+h2 {
+	font-family: $font-300;
+	font-size: 65px;
+	margin: 0;
+	@include devices {
+		font-size: 55px;
+	}
+	@include mobile {
+		font-size: 45px;
+	}
+}
+
 video {
 	outline: none;
 	width: 100%;
@@ -138,15 +157,20 @@ iframe {
 	z-index: 1;
 	margin: 0 auto;
 	width: 100%;
-	max-width: 100%;
+	max-width: 1240px;
 }
-
+.d-flex {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
 .site {
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh; // fallback
 	// stylelint-disable-next-line
 	min-height: var(--vh);
+	width: 100%;
 }
 
 /* stylelint-disable */
@@ -154,14 +178,14 @@ iframe {
 * Немедленно переместите любую анимацию в конечную точку, если пользователь установил свое устройство в положение "prefers reduced motion".
 * Это может привести к плохим(непреднамеренным) последствиям. Удалите по мере необходимости и напишите свой собственный код для prefers-reduced-motion.
 */
-@media (prefers-reduced-motion: reduce) {
-	*,
-	*:before,
-	*:after {
-		animation-duration: 0.001s !important;
-		animation-delay: 0s !important;
-		transition-duration: 0.001s !important;
-		transition-delay: 0s !important;
-	}
-}
+// @media (prefers-reduced-motion: reduce) {
+// 	*,
+// 	*:before,
+// 	*:after {
+// 		animation-duration: 0.001s !important;
+// 		animation-delay: 0s !important;
+// 		transition-duration: 0.001s !important;
+// 		transition-delay: 0s !important;
+// 	}
+// }
 /* stylelint-enable */

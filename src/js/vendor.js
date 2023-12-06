@@ -3,6 +3,7 @@ import 'regenerator-runtime/runtime';
 import svg4everybody from 'svg4everybody';
 import $ from 'jquery';
 import objectFitImages from 'object-fit-images';
+
 // import objectFitVideos from 'object-fit-videos';
 
 svg4everybody();

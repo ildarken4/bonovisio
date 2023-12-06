@@ -1,44 +1,244 @@
-.home {
-	padding: 80px 20px;
-
-	&__picture {
-		display: block;
-		margin: 0 auto 40px;
-		max-width: 500px;
-		opacity: 0;
-		transition: $duration-normal;
-
-		&[data-loaded="true"] {
-			opacity: 1;
-		}
-
-		&--2 {
-			margin-top: 40px;
-			margin-bottom: 0;
+.promo {
+	background-color: $color-white;
+	animation: bgBlue 0.6s 0.8s forwards;
+	.container {
+		display: flex;
+		align-items: flex-start;
+		justify-content: flex-end;
+		flex-wrap: wrap;
+		padding-top: 32px;
+		padding-bottom: 90px;
+		@include devices {
+			justify-content: space-around;
+			padding: 32px 15px;
 		}
 	}
-
-	&__text {
-		margin: 0 auto;
-		max-width: 500px;
-		font-size: 20px;
-		line-height: 26px;
-
-		a {
-			text-decoration: underline;
-
-			@include hover {
-				text-decoration: none;
+	&__left {
+		padding: 40px 9% 0 0;
+		flex: 0 0 55%;
+		opacity: 0;
+    	animation: fadeIn 0.6s 1s forwards;
+		@include devices {
+			flex: 0 0 20%;
+		}
+		@include mobile {
+			padding-right: 0;
+		}
+		.reg-button {
+			margin-left: 10%;
+			margin-top: 70px;
+			@include mobile {
+				margin-left: auto;
 			}
 		}
+	}
+	&__right {
+		flex: 0 0 34%;
+		opacity: 0;
+    	animation: fadeIn 0.6s 1.2s forwards;
+		@include devices {
+			flex: 0 0 30%;
+		}
+		@include mobile {
+			padding-top: 40px;
+			flex: 0 0 75%;
+		}
+	}
+	&__description {
+		flex: 1 0 100%;
+		color: $color-white;
+		padding-left: 15.5%;
+		font-size: 23.5px;
+		padding-top: 56px;
+		opacity: 0;
+    	animation: fadeIn 0.6s 1.5s forwards;
+		@include tablet {
+			padding-left: 6%;
+		}
+		@include mobile {
+			padding-left: 0;
+		}
+		p {
+			max-width: 54%;
+			@include devices {
+				max-width: 90%;
+			}
+			&:not(:first-child) {
+				padding-top: 46px;
+				font-size: 20px;
+				max-width: 50%;
+				line-height: 27px;
+				@include devices {
+					max-width: 90%;
+				}
+			}
+		}
+	}
+	&__arrow {
+		flex: 1 0 100%;
+		text-align: center;
+		margin-top: 48px;
+		animation: arrowAnimation 1.5s infinite;
+		img {
+			opacity: 0;
+			animation: fadeFromTop 0.6s 2s forwards;
+		}
+	}
+}
 
-		code {
-			padding: 5px;
-			background-color: $color-gray;
+
+.speakers {
+	padding: 105px 0;
+	@include devices {
+		padding: 40px 0;
+	}
+	h2 {
+		padding-left: 15.5%;
+	}
+	.arrow-next img{
+		transform: rotate(180deg);
+	}
+	.swiper-container {
+		position: relative;
+		max-width: 75%;
+		overflow: hidden;
+		margin-top: 56px;
+		@include devices {
+			max-width: 90%;
+		}
+	}
+	&__slide {
+		position: relative;
+		&-details {
+			position: absolute;
+			box-sizing: border-box;
+			z-index: 2;
+			background-color: $color-transparentblue;
+			color: $color-white;
+			bottom: 0;
+			height: 30%;
+			width: 100%;
+			padding: 30px 48px;
+			font-size: 28px;
+			font-family: $font-500;
+			transition: all 0.6s ease;
+			cursor: pointer;
+			@include devices {
+				padding: 12px;
+				font-size: 22px;
+			}
+			&:hover {
+				background-color: $color-lightblue;
+			}
+		}
+		&-position {
+			font-family: $font-400;
+			font-size: 21px;
+			margin-top: 16px;
+			@include devices {
+				font-size: 16px;
+				margin-top: 4px;
+			}
+		}
+	}
+	
+	.arrow-prev,
+	.arrow-next {
+		position: relative;
+		width: 12.5%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
+		@include devices {
+			opacity: 0;
+			pointer-events: none;
 		}
 	}
 
-	@include desktop {
-		padding: 100px 0;
+	.swiper-pagination {
+		position: relative;
+		margin-top: 56px;
+		&-bullet{
+			height: 16px;
+			width: 16px;
+			&:not(:first-child) {
+				margin-left: 30px !important;
+				@include mobile {
+					margin-left: auto !important;
+				}
+			}
+			&-active {
+				background-color: $color-blue;
+			}
+		}
+	}
+}
+
+.feedback {
+	background-color: $color-blue;
+	padding-top: 160px;
+	padding-bottom: 60px;
+	@include tablet {
+		padding-top: 80px;
+
+	}
+	@include mobile {
+		padding-top: 60px;
+
+	}
+	.container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	h2 {
+		color: $color-white;
+		padding-left: 15.5%;
+		width: 100%;
+	}
+	&__form {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		margin-top: 60px;
+		width: 68%;
+		@include devices {
+			width: 90%;
+		}
+		input.invalid {
+			background-color: $color-orange;
+		}
+		input[type="text"] {
+			flex: 0 0 calc(50% - 15px);
+			height: 56px;
+			padding: 16px 20px;
+			font-size: 20px;
+			@include mobile {
+				flex: 0 0 100%;
+				&:not(:first-child) {
+					margin-top: 30px;
+				}
+			}
+		}
+		#submit {
+			margin-top: 30px;
+			margin-left: auto;
+			margin-right: 0;
+			@include mobile {
+				margin-right: auto;
+				padding-left: 40px;
+				padding-right: 40px;
+				margin-top: 80px;
+			}
+		}
+		textarea {
+			margin-top: 30px;
+			flex: 1 0 100%;
+			padding: 16px 20px;
+			font-size: 20px;
+		}
+
 	}
 }

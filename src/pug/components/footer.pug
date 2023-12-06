@@ -1,6 +1,9 @@
 footer.footer
-	.footer__copyright
-		span(data-actual-year)
+	.container
+		.footer__contacts
+			a(href="mailto:"+data.footerLinks.email)=data.footerLinks.email
+			a(href="tel:"+data.footerLinks.phone)=data.footerLinks.phone
+		.footer__privacy
+			a(href=data.footerLinks.privacy)
+				| Правовая информация
 
-	.footer__developer
-		| &copy;&nbsp;Девять линий

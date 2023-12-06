@@ -1,0 +1,39 @@
+@keyframes fadeIn {
+    from {
+        transform: translateY(10px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeFromTop {
+    from {
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes bgBlue {
+    from {
+        background-color: #fff;
+    }
+    to {
+        background-color: $color-blue;
+    }
+}
+
+@keyframes arrowAnimation {
+	0%, 50%, 100% {
+		transform: translateY(0);
+	}
+	25%, 75% {
+		transform: translateY(4px);
+	}
+}

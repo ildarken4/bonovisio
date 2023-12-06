@@ -1,33 +1,52 @@
-main.home
-	+lazyPicture({
-		src: `${baseDir}images/mem.jpg`,
-		alt: 'Мемчик',
-	}).home__picture#hello
 
-	p.home__text#necessarily
-		| Это стартовый шаблон для верстки!
-		br
-		br
-		| Обязательно посмотри реализацию:
-		br
-		| pug в папке #[code pug/(components|pages)],
-		br
-		| js в папке #[code js/(components|modules|pages)],
-		br
-		| scss в папке #[code scss/(components|pages)]
-		br
-		br
-		| Не используемые части кода/компонентов можно просто отключить (удалять не рекомендуется)
-		br
-		br
-		| Не забывай читать #[a(href="https://github.com/ninelines-team/ninelines-docs" target="_blank") документацию]!
+.promo
+	.container
+		.promo__left
+			img(src='images/promo_left.svg' width="100%")
+			a(href="#feedback").reg-button.button-blue
+				| Зарегистрироваться
+		.promo__right
+			img(src='images/promo_right.svg' width="100%")
+		.promo__description.fade-in
+			p
+				| Команда рекламного холдинга GroupM рада 
+				br 
+				| открыть для вас двери digital-конференции NextM!
+			p
+				| NextM – это ежегодная digital-конференция, организованная ведущей международной рекламной группой GroupM, входящей в состав коммуникационного холдинга WPP и представленной в России агентствами Mindshare, MediaCom и Wavemaker.
+		.promo__arrow
+			img(src="images/arrow_white.svg" alt="")
 
-	//- picture.home__picture.home__picture--2#bye
-	+lazyPicture({
-		src: `${baseDir}images/mem-2.jpg`,
-		alt: 'Мемчик 2',
-	}, [
-		{
-			srcset: `${baseDir}images/mem-2.jpg`,
-		}
-	]).home__picture.home__picture--2#bye
+.speakers
+	.container
+		h2
+			| Спикеры
+		.d-flex
+			.arrow-prev
+				img(src="images/arrow_black.svg" alt="")
+			.speakers__slider.swiper-container#slider
+				
+				.swiper-wrapper
+					each object in data.speakers.items
+						.speakers__slide.swiper-slide
+							img.speakers__slide-photo(src=object.photo width="100%" alt="")
+							.speakers__slide-details
+								.speakers__slide-name
+									!=object.name
+								.speakers__slide-position
+									!=object.position
+				
+			.arrow-next
+				img(src="images/arrow_black.svg" alt="")
+		.swiper-pagination
+
+.feedback#feedback
+	.container
+		h2
+			| Отправить сообщение
+		form.feedback__form#form
+			input(type="text" id="name" name="name" placeholder="Ваше имя" required)
+			input(type="text" id="email" name="email" placeholder="Ваш email")
+			textarea(name="message" id="message" rows="4" placeholder="Ваше сообщение" required)
+			.button-blue#submit
+				| Отправить

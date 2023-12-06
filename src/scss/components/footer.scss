@@ -1,17 +1,29 @@
 .footer {
-	display: flex;
-	margin-top: auto;
-	padding: 20px 30px;
-	width: 100%;
-
-	&__developer {
-		margin-left: auto;
-		font-size: 12px;
-		line-height: 16px;
+	background-color: $color-blue;
+	color: $color-white;
+	padding-top: 60px;
+	padding-bottom: 170px;
+	text-align: center;
+	&__contacts {
+		font-size: 40px;
+		@include mobile {
+			font-size: 24px;
+		}
 	}
+	&__privacy {
+		font-size: 24px;
+		margin-top: 16px;
+		text-decoration: underline;
+		@include mobile {
+			font-size: 16px;
+		}
+	}
+	a {
+		display: block;
+		transition: all 0.6s ease;
+		&:hover {
+			color: $color-lightblue;
+		}
 
-	&__copy {
-		font-size: 12px;
-		line-height: 16px;
 	}
 }
