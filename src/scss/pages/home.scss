@@ -208,7 +208,10 @@
 			width: 90%;
 		}
 		input.invalid {
-			background-color: $color-orange;
+			border: 3px solid $color-red;
+		}
+		input.error {
+			border: 3px solid $color-red;
 		}
 		input[type="text"] {
 			flex: 0 0 calc(50% - 15px);
@@ -238,6 +241,9 @@
 			flex: 1 0 100%;
 			padding: 16px 20px;
 			font-size: 20px;
+			&.error {
+				border: 3px solid $color-red;
+			}
 		}
 
 	}
